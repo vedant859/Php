@@ -1,0 +1,15 @@
+<html>
+<head>
+<script src="jquery.js"></script>
+<script>
+function addText(){
+    $("#p").before("Before Text ");
+    $("#p").after(" After Text");
+}
+</script>
+</head>
+<body>
+<p id="p">Paragraph</p>
+<button onclick="addText()">Click</button>
+</body>
+</html>
