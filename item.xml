@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<items>
+  <item>
+    <name>Pen</name>
+    <rate>10</rate>
+    <quantity>100</quantity>
+  </item>
+  <item>
+    <name>Notebook</name>
+    <rate>50</rate>
+    <quantity>40</quantity>
+  </item>
+  <item>
+    <name>Bag</name>
+    <rate>700</rate>
+    <quantity>20</quantity>
+  </item>
+  <item>
+    <name>Bottle</name>
+    <rate>150</rate>
+    <quantity>30</quantity>
+  </item>
+  <item>
+    <name>Calculator</name>
+    <rate>400</rate>
+    <quantity>15</quantity>
+  </item>
+</items>
