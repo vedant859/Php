@@ -1,0 +1,85 @@
+#book.xml
+<?xml version="1.0"?>
+<books>
+  <book>
+    <title>Java</title>
+    <author>James Gosling</author>
+    <year>1995</year>
+    <price>500</price>
+  </book>
+
+  <book>
+    <title>Python</title>
+    <author>Guido van Rossum</author>
+    <year>1991</year>
+    <price>600</price>
+  </book>
+
+  <book>
+    <title>DBMS</title>
+    <author>Korth</author>
+    <year>2000</year>
+    <price>450</price>
+  </book>
+</books>
+
+#HTML
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function showBook(str){
+    if(str==""){
+        document.getElementById("result").innerHTML="";
+        return;
+    }
+
+    let x = new XMLHttpRequest();
+
+    x.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200){
+            let xml = this.responseXML;
+
+            let books = xml.getElementsByTagName("book");
+            let output = "";
+
+            for(let i=0;i<books.length;i++){
+                let title = books[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+
+                if(title == str){
+                    let author = books[i].getElementsByTagName("author")[0].childNodes[0].nodeValue;
+                    let year = books[i].getElementsByTagName("year")[0].childNodes[0].nodeValue;
+                    let price = books[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
+
+                    output = "Author: " + author + "<br>" +
+                             "Year: " + year + "<br>" +
+                             "Price: " + price;
+                }
+            }
+
+            document.getElementById("result").innerHTML = output;
+        }
+    };
+
+    x.open("GET","book.xml",true);
+    x.send();
+}
+</script>
+</head>
+
+<body>
+
+<h2>Select Book</h2>
+
+<select onchange="showBook(this.value)">
+    <option value="">Select Book</option>
+    <option value="Java">Java</option>
+    <option value="Python">Python</option>
+    <option value="DBMS">DBMS</option>
+</select>
+
+<div id="result"></div>
+
+</body>
+</html>
+
