@@ -1,0 +1,11 @@
+<input type="text" id="name" onblur="check()">
+
+<script>
+function check(){
+    let name=document.getElementById("name").value;
+    if(name!=""){
+        document.getElementById("name").style.color="red";
+        document.getElementById("name").style.fontSize="18px";
+    }
+}
+</script>
